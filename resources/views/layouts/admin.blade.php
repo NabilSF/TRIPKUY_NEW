@@ -5,42 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin TripKuy - @yield('title')</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --primary: #2aa090;
-            --primary-dark: #1f7a6e;
-            --secondary: #222222;
-            --bg-light: #f8fafc;
-            --sidebar-width: 260px;
-        }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
-        
-        /* Sidebar & Layout */
+        :root { --sidebar-width: 260px; }
         .sidebar {
             width: var(--sidebar-width);
-            background: linear-gradient(180deg, var(--secondary) 0%, #333333 100%);
-            color: white;
+            background: linear-gradient(180deg, #222222 0%, #333333 100%);
             position: fixed; height: 100vh; z-index: 50; transition: all 0.3s ease;
         }
         .main-content { margin-left: var(--sidebar-width); transition: all 0.3s ease; min-height: 100vh; display: flex; flex-direction: column; }
-        
-        /* Mobile Responsive */
         @media (max-width: 1024px) {
             .sidebar { transform: translateX(-100%); }
             .main-content { margin-left: 0; }
             .sidebar.active { transform: translateX(0); }
         }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
     </style>
 </head>
 <body class="text-gray-800">
