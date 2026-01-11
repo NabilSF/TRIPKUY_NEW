@@ -24,7 +24,7 @@
                         <div>
                             <div class="font-bold text-gray-800 text-sm group-hover:text-green-600 transition">{{ $in->user->nama }}</div>
                             <div class="text-xs text-gray-500">
-                                #{{ $in->id_reservasi }} • {{ $in->kamar->nama_kamar }}
+                                #{{ $in->id }} • {{ $in->kamar->nama_kamar }}
                             </div>
                             <div class="text-[10px] text-gray-400 mt-0.5">
                                 <i class="fas fa-calendar-alt"></i> Check-in: {{ \Carbon\Carbon::parse($in->tanggal_check_in)->format('d M') }}
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     
-                    <form action="{{ route('admin.checkin.process', $in->id_reservasi) }}" method="POST">
+                    <form action="{{ route('admin.checkin.process', $in->id) }}" method="POST">
                         @csrf
                         <button type="submit" class="bg-[#2aa090] text-white px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-[#1f7a6e] shadow-sm shadow-green-200 transition transform active:scale-95">
                             Proses
@@ -71,7 +71,7 @@
                         <div>
                             <div class="font-bold text-gray-800 text-sm group-hover:text-red-600 transition">{{ $out->user->nama }}</div>
                             <div class="text-xs text-gray-500">
-                                #{{ $out->id_reservasi }} • {{ $out->kamar->nama_kamar }}
+                                #{{ $out->id }} • {{ $out->kamar->nama_kamar }}
                             </div>
                             
                             @if($isPast)
@@ -90,7 +90,7 @@
                         </div>
                     </div>
 
-                    <form action="{{ route('admin.checkout.process', $out->id_reservasi) }}" method="POST">
+                    <form action="{{ route('admin.checkout.process', $out->id) }}" method="POST">
                         @csrf
                         <button type="submit" onclick="return confirm('Konfirmasi Check-out tamu ini?')" class="bg-gray-800 text-white px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-black shadow-sm transition transform active:scale-95">
                             Selesai

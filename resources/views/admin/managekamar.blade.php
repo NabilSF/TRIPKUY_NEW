@@ -29,7 +29,7 @@
                     <td class="p-4 text-sm">{{ $kamar->kapasitas_orang }} Orang</td>
                     <td class="p-4 text-[#2aa090] font-bold">Rp {{ number_format($kamar->harga, 0, ',', '.') }}</td>
                     <td class="p-4 text-center">
-                        <button onclick="editHarga({{ $kamar->id_kamar }}, '{{ $kamar->nama_kamar }}', {{ $kamar->harga }})" 
+                        <button onclick="editHarga({{ $kamar->id }}, '{{ $kamar->nama_kamar }}', {{ $kamar->harga }})" 
                                 class="bg-blue-50 text-blue-600 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-blue-100">
                             Ubah Harga
                         </button>

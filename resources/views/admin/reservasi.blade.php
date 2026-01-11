@@ -37,7 +37,7 @@
                 
                 <tr class="hover:bg-gray-50 transition {{ $isTelat ? 'bg-red-50/50' : '' }}">
                     <td class="p-4">
-                        <span class="font-mono text-gray-500 block">#{{ $res->id_reservasi }}</span>
+                        <span class="font-mono text-gray-500 block">#{{ $res->id }}</span>
                         <span class="text-[10px] text-gray-400">{{ $waktuBooking->format('d M H:i') }}</span>
                     </td>
                     <td class="p-4">
@@ -81,7 +81,7 @@
                     </td>
                     <td class="p-4 text-center">
                         @if($res->status == 'pending')
-                            <form action="{{ route('admin.reservasi.cancel', $res->id_reservasi) }}" method="POST" 
+                            <form action="{{ route('admin.reservasi.cancel', $res->id) }}" method="POST" 
                                   onsubmit="return confirm('Apakah Anda yakin ingin membatalkan pesanan ini secara sepihak? {{ $isTelat ? '(Pesanan ini sudah melewati batas waktu pembayaran)' : '' }}')">
                                 @csrf
                                 <button type="submit" class="bg-red-50 border border-red-200 text-red-600 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-red-600 hover:text-white transition flex items-center justify-center gap-2 mx-auto w-full shadow-sm">

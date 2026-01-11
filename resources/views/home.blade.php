@@ -73,10 +73,10 @@
     if (!isset($hotels) || $hotels->isEmpty()) {
         // Dummy data jika DB kosong
         $hotelsData = collect([
-            (object)['id_hotel'=>1, 'nama_hotel'=>'The Langham Jakarta', 'alamat'=>'Jakarta Selatan', 'price'=>2500000],
-            (object)['id_hotel'=>2, 'nama_hotel'=>'Padma Hotel Bandung', 'alamat'=>'Ciumbuleuit, Bandung', 'price'=>1800000],
-            (object)['id_hotel'=>3, 'nama_hotel'=>'Ayana Resort Bali', 'alamat'=>'Jimbaran, Bali', 'price'=>3500000],
-            (object)['id_hotel'=>4, 'nama_hotel'=>'Hotel Tentrem', 'alamat'=>'Yogyakarta', 'price'=>1500000],
+            (object)['id'=>1, 'nama_hotel'=>'The Langham Jakarta', 'alamat'=>'Jakarta Selatan', 'price'=>2500000],
+            (object)['id'=>2, 'nama_hotel'=>'Padma Hotel Bandung', 'alamat'=>'Ciumbuleuit, Bandung', 'price'=>1800000],
+            (object)['id'=>3, 'nama_hotel'=>'Ayana Resort Bali', 'alamat'=>'Jimbaran, Bali', 'price'=>3500000],
+            (object)['id'=>4, 'nama_hotel'=>'Hotel Tentrem', 'alamat'=>'Yogyakarta', 'price'=>1500000],
         ]);
         $isDummy = true;
     } else {
@@ -107,17 +107,14 @@
             @foreach($hotelsData as $h)
                 @php
                     if(!$isDummy) {
-                        // --- LOGIKA GAMBAR PRIORITAS (Sama seperti Admin) ---
+                        // --- PERBAIKAN: Gunakan $h->id ---
                         if ($h->gambar && file_exists(public_path('storage/' . $h->gambar))) {
-                            // 1. Uploaded Image
                             $imageUrl = asset('storage/' . $h->gambar);
                         } 
-                        elseif (file_exists(public_path('images/hotel_' . $h->id_hotel . '.jpg'))) {
-                            // 2. Folder public/images/hotel_{id}.jpg
-                            $imageUrl = asset('images/hotel_' . $h->id_hotel . '.jpg');
+                        elseif (file_exists(public_path('images/hotel_' . $h->id . '.jpg'))) {
+                            $imageUrl = asset('images/hotel_' . $h->id . '.jpg');
                         }
                         else {
-                            // 3. Fallback Placeholder
                             $imageUrl = 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80';
                         }
 
@@ -125,14 +122,16 @@
                         $priceRaw = $kamarTermurah ? $kamarTermurah->harga : 0;
                         $tersedia = $kamarTermurah ? true : false;
                     } else {
-                        $imageUrl = 'https://source.unsplash.com/400x300/?hotel,modern&sig=' . $h->id_hotel;
+                        // PERBAIKAN: Gunakan $h->id pada sig
+                        $imageUrl = 'https://source.unsplash.com/400x300/?hotel,modern&sig=' . $h->id;
                         $priceRaw = $h->price;
                         $tersedia = true;
                     }
                     $fakeRating = number_format(rand(45, 50) / 10, 1);
                 @endphp
 
-                <div class="min-w-[280px] w-[280px] bg-white rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-15px_rgba(42,160,144,0.3)] transition-all duration-300 border border-gray-50 flex-shrink-0 snap-start group cursor-pointer relative hover:-translate-y-2" onclick="window.location='{{ route('detail', $h->id_hotel) }}'">
+                {{-- PERBAIKAN: id_hotel -> id --}}
+                <div class="min-w-[280px] w-[280px] bg-white rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-15px_rgba(42,160,144,0.3)] transition-all duration-300 border border-gray-50 flex-shrink-0 snap-start group cursor-pointer relative hover:-translate-y-2" onclick="window.location='{{ route('detail', $h->id) }}'">
                     
                     <div class="relative h-48 overflow-hidden rounded-t-3xl">
                         <img src="{{ $imageUrl }}" alt="{{ $h->nama_hotel }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -224,8 +223,6 @@
         </div>
     </div>
 </div>
-</div>
-</div>
 
 <div id="tentang-kami" class="py-24 bg-white border-t border-gray-50 relative overflow-hidden">
     <div class="absolute top-0 left-0 w-64 h-64 bg-[#2aa090]/5 rounded-full -ml-32 -mt-32 blur-3xl"></div>
@@ -278,7 +275,7 @@
         </div>
     </div>
 </div>
-<div class="py-20  bg-[#2aa090]/10"></div>
+
 <div class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
         @guest
@@ -328,8 +325,6 @@
                             <a href="{{ route('user.reservasi') }}" class="bg-[#2aa090] text-white px-8 py-4 rounded-2xl font-bold text-base shadow-lg hover:bg-[#1f7a6e] transition flex items-center justify-center gap-3 group">
                                 <i class="fas fa-ticket-alt group-hover:rotate-12 transition-transform"></i> Cek Booking Saya
                             </a>
-
-                            {{-- Tombol Check-in Baru --}}
                             <a href="{{ route('user.checkin') }}" class="bg-white/10 backdrop-blur text-white border border-white/20 px-8 py-4 rounded-2xl font-bold text-base hover:bg-white/20 transition flex items-center justify-center gap-3 group">
                                 <i class="fas fa-key text-[#2aa090]"></i> Check-in Online
                             </a>
@@ -342,7 +337,8 @@
                 </div>
             @endif
         @endauth
-
+    </div>
+</div>
 
 <script>
     function scrollContainer(containerId, direction) {

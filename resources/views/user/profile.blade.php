@@ -72,14 +72,13 @@
                     <div class="grid grid-cols-2 gap-4 mb-8">
                         <div class="bg-blue-50 p-4 rounded-xl text-center">
                             <h4 class="text-3xl font-bold text-blue-600">
-                                {{ \App\Models\Reservasi::where('id_user', Auth::id())->count() }}
+                                {{ Auth::user()->reservasis()->count() }}
                             </h4>
                             <p class="text-xs text-blue-400 font-bold uppercase mt-1">Total Pesanan</p>
                         </div>
                         <div class="bg-green-50 p-4 rounded-xl text-center">
                             <h4 class="text-3xl font-bold text-green-600">
-                                {{ \App\Models\Reservasi::where('id_user', Auth::id())->where('status', 'confirmed')->count() }}
-                            </h4>
+                                {{ Auth::user()->reservasis()->where('status', 'confirmed')->count() }}
                             <p class="text-xs text-green-400 font-bold uppercase mt-1">Berhasil</p>
                         </div>
                     </div>

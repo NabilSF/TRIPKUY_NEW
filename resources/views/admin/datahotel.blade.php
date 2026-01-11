@@ -22,8 +22,8 @@
                     $imgUrl = asset('storage/' . $hotel->gambar);
                 } 
                 // 2. Prioritas Kedua: Gambar bawaan di folder public/images (format: hotel_{id}.jpg)
-                elseif (file_exists(public_path('images/hotel_' . $hotel->id_hotel . '.jpg'))) {
-                    $imgUrl = asset('images/hotel_' . $hotel->id_hotel . '.jpg');
+                elseif (file_exists(public_path('images/hotel_' . $hotel->id . '.jpg'))) {
+                    $imgUrl = asset('images/hotel_' . $hotel->id . '.jpg');
                 }
                 // 3. Fallback: Gambar placeholder jika tidak ada di kedua lokasi
                 else {
@@ -44,7 +44,7 @@
                     <p class="text-sm text-gray-500 mb-4 line-clamp-2 flex-grow">{{ $hotel->alamat }}</p>
                     
                     <div class="mt-auto pt-4 border-t border-gray-50 flex gap-2">
-                        <button onclick="openEditModal({{ $hotel->id_hotel }}, '{{ addslashes($hotel->nama_hotel) }}', '{{ addslashes($hotel->kota) }}', '{{ addslashes($hotel->alamat) }}')" 
+                        <button onclick="openEditModal({{ $hotel->id }}, '{{ addslashes($hotel->nama_hotel) }}', '{{ addslashes($hotel->kota) }}', '{{ addslashes($hotel->alamat) }}')" 
                                 class="flex-1 bg-gray-50 hover:bg-[#2aa090] text-gray-600 hover:text-white py-2 rounded-lg text-sm font-semibold transition flex justify-center items-center gap-2">
                             <i class="fas fa-edit"></i> Edit
                         </button>

@@ -57,7 +57,7 @@
                                 <img src="https://ui-avatars.com/api/?name={{ urlencode($user->nama) }}&background=random&color=fff" class="w-10 h-10 rounded-full border border-gray-200">
                                 <div>
                                     <div class="font-bold text-gray-800 group-hover:text-[#2aa090] transition">{{ $user->nama }}</div>
-                                    <div class="text-xs text-gray-400">ID: #{{ $user->id_user }}</div>
+                                    <div class="text-xs text-gray-400">ID: #{{ $user->id }}</div>
                                 </div>
                             </div>
                         </td>
@@ -86,7 +86,7 @@
                                 <i class="fas fa-eye"></i>
                             </button>
                             
-                            <form action="{{ route('admin.pelanggan.delete', $user->id_user) }}" method="POST" class="inline-block" onsubmit="return confirm('Hapus user ini? Data tidak bisa dikembalikan.')">
+                            <form action="{{ route('admin.pelanggan.delete', $user->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Hapus user ini? Data tidak bisa dikembalikan.')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-gray-400 hover:text-red-600 transition p-2 bg-gray-100 rounded-lg hover:bg-red-50" title="Hapus User">
