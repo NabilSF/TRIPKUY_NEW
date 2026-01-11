@@ -41,21 +41,36 @@ class HomeController extends Controller
     }
 
     public function storeReservasi(Request $request) {
+        // VALIDASI TANGGAL & INPUT
         $request->validate([
             'id_kamar' => 'required|exists:tipe_kamar,id',
-            'check_in' => 'required|date',
-            'check_out' => 'required|date',
+            'check_in' => 'required|date|after_or_equal:today', // Minimal hari ini
+            'check_out' => 'required|date|after:check_in',      // Harus setelah check-in
             'jumlah_kamar' => 'required|integer|min:1',
+        ], [
+            'check_in.after_or_equal' => 'Tanggal check-in tidak boleh di masa lalu.',
+            'check_out.after' => 'Tanggal check-out harus setelah tanggal check-in.'
         ]);
 
         $kamar = TipeKamar::findOrFail($request->id_kamar);
-        $totalMalam = Carbon::parse($request->check_in)->diffInDays(Carbon::parse($request->check_out));
         
+        // Hitung Selisih Malam
+        $checkIn = \Carbon\Carbon::parse($request->check_in);
+        $checkOut = \Carbon\Carbon::parse($request->check_out);
+        $totalMalam = $checkIn->diffInDays($checkOut);
+        
+        // Pastikan minimal 1 malam
+        if($totalMalam < 1) $totalMalam = 1;
+
+        $totalHarga = $kamar->harga * $request->jumlah_kamar * $totalMalam;
+
+        // Simpan Pembayaran
         $pembayaran = Pembayaran::create([
-            'total_harga' => $kamar->harga * $request->jumlah_kamar * $totalMalam,
+            'total_harga' => $totalHarga,
             'tipe_pembayaran' => 'transfer_virtual_account'
         ]);
 
+        // Simpan Reservasi
         $reservasi = Reservasi::create([
             'user_id' => Auth::id(),
             'tipe_kamar_id' => $kamar->id,
@@ -70,7 +85,6 @@ class HomeController extends Controller
 
         return redirect()->route('user.pembayaran', $reservasi->id);
     }
-
     public function showPayment($id) {
         $reservasi = Reservasi::with(['tipeKamar.hotel', 'pembayaran'])->where('user_id', Auth::id())->findOrFail($id);
         return view('pembayaran', compact('reservasi'));

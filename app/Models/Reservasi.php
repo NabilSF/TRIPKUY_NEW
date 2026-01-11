@@ -10,6 +10,8 @@ class Reservasi extends Model {
         'jumlah_kamar', 'total_malam', 'status'
     ];
 
+    public $timestamps = false; 
+
     public function user() { return $this->belongsTo(User::class); }
     public function tipeKamar() { return $this->belongsTo(TipeKamar::class); }
     public function pembayaran() { return $this->belongsTo(Pembayaran::class); }
