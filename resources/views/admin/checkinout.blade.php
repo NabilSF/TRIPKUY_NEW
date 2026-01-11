@@ -34,7 +34,7 @@
                     
                     <form action="{{ route('admin.checkin.process', $in->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="bg-[#2aa090] text-white px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-[#1f7a6e] shadow-sm shadow-green-200 transition transform active:scale-95">
+                        <button type="submit" class="bg-perimary text-white px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-primary-dark shadow-sm shadow-green-200 transition transform active:scale-95">
                             Proses
                         </button>
                     </form>

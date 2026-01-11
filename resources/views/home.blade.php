@@ -18,12 +18,12 @@
         </div>
         <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-8 drop-shadow-2xl tracking-tight leading-tight animate-fade-in-up animation-delay-100 font-sans">
             Wujudkan Liburan<br>
-            <span class="text-transparent bg-clip-text bg-linear-to-r from-[#2aa090] to-teal-300">Impianmu Sekarang</span>
+            <span class="text-transparent bg-clip-text bg-linear-to-r from-primary to-teal-300">Impianmu Sekarang</span>
         </h1>
         
         <div class="animate-fade-in-up animation-delay-200">
             <button onclick="document.getElementById('rekomendasi').scrollIntoView({behavior: 'smooth'})" 
-                    class="bg-[#2aa090] hover:bg-[#1f7a6e] text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg hover:shadow-[#2aa090]/50 flex items-center justify-center gap-3 mx-auto group active:scale-95 border-2 border-transparent hover:border-white/20">
+                    class="bg-primary hover:bg-primary-dark text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg hover:shadow-primary/50 flex items-center justify-center gap-3 mx-auto group active:scale-95 border-2 border-transparent hover:border-white/20">
                 <span class="text-lg">Mulai Eksplorasi</span> 
                 <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
             </button>
@@ -56,7 +56,7 @@
             
             <div class="absolute bottom-0 left-0 p-8 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
                 <h3 class="text-2xl font-bold text-white mb-2 tracking-wide">{{ $d['kota'] }}</h3>
-                <div class="w-12 h-1 bg-[#2aa090] rounded-full mb-3"></div>
+                <div class="w-12 h-1 bg-primary rounded-full mb-3"></div>
                 <p class="text-sm text-gray-300 font-medium opacity-90 group-hover:text-white transition">{{ $d['desc'] }}</p>
             </div>
             
@@ -94,10 +94,10 @@
             </div>
             
             <div class="hidden md:flex gap-4">
-                <button onclick="scrollContainer('cardSlider', -1)" class="w-12 h-12 rounded-full border-2 border-gray-100 flex items-center justify-center hover:bg-[#2aa090] hover:border-[#2aa090] hover:text-white transition-all shadow-sm bg-white text-gray-400 group">
+                <button onclick="scrollContainer('cardSlider', -1)" class="w-12 h-12 rounded-full border-2 border-gray-100 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all shadow-sm bg-white text-gray-400 group">
                     <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
                 </button>
-                <button onclick="scrollContainer('cardSlider', 1)" class="w-12 h-12 rounded-full border-2 border-gray-100 flex items-center justify-center hover:bg-[#2aa090] hover:border-[#2aa090] hover:text-white transition-all shadow-sm bg-white text-gray-400 group">
+                <button onclick="scrollContainer('cardSlider', 1)" class="w-12 h-12 rounded-full border-2 border-gray-100 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all shadow-sm bg-white text-gray-400 group">
                     <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                 </button>
             </div>
@@ -137,7 +137,7 @@
                         <img src="{{ $imageUrl }}" alt="{{ $h->nama_hotel }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                         
                         @if($tersedia)
-                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-[#2aa090] text-[10px] font-bold px-3 py-1.5 rounded-full shadow-md tracking-wide flex items-center gap-1">
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-primary text-[10px] font-bold px-3 py-1.5 rounded-full shadow-md tracking-wide flex items-center gap-1">
                                 <i class="fas fa-tag"></i> PROMO
                             </div>
                         @endif
@@ -148,9 +148,9 @@
                     </div>
                     
                     <div class="p-6">
-                        <h3 class="text-lg font-bold text-gray-800 truncate mb-1 group-hover:text-[#2aa090] transition-colors">{{ $h->nama_hotel }}</h3>
+                        <h3 class="text-lg font-bold text-gray-800 truncate mb-1 group-hover:text-primary transition-colors">{{ $h->nama_hotel }}</h3>
                         <p class="text-xs text-gray-400 mb-5 flex items-center gap-1.5 truncate font-medium">
-                            <i class="fas fa-map-marker-alt text-[#2aa090]"></i> {{ $h->alamat }}
+                            <i class="fas fa-map-marker-alt text-primary"></i> {{ $h->alamat }}
                         </p>
                         
                         <div class="flex justify-between items-end border-t border-dashed border-gray-200 pt-4">
@@ -159,14 +159,14 @@
                                     <p class="text-[10px] text-gray-400 mb-0.5 font-medium uppercase tracking-wide">Mulai dari</p>
                                     <div class="flex flex-col">
                                         <span class="text-xs text-gray-300 line-through">Rp {{ number_format($priceRaw * 1.3, 0, ',', '.') }}</span>
-                                        <div class="text-lg font-extrabold text-[#2aa090]">Rp {{ number_format($priceRaw, 0, ',', '.') }}</div>
+                                        <div class="text-lg font-extrabold text-primary">Rp {{ number_format($priceRaw, 0, ',', '.') }}</div>
                                     </div>
                                 </div>
                             @else
                                 <div class="text-xs font-bold text-gray-400 mt-2 italic">Cek Ketersediaan</div>
                             @endif
                             
-                            <div class="w-10 h-10 rounded-full bg-[#2aa090]/10 flex items-center justify-center text-[#2aa090] group-hover:bg-[#2aa090] group-hover:text-white transition-all duration-300 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
                                 <i class="fas fa-chevron-right"></i>
                             </div>
                         </div>
@@ -195,10 +195,10 @@
             </div>
             
             <div class="hidden md:flex gap-3">
-                <button onclick="scrollContainer('reviewSlider', -1)" class="w-10 h-10 bg-white rounded-full shadow-sm border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#2aa090] transition group">
+                <button onclick="scrollContainer('reviewSlider', -1)" class="w-10 h-10 bg-white rounded-full shadow-sm border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary transition group">
                     <i class="fas fa-arrow-left text-sm"></i>
                 </button>
-                <button onclick="scrollContainer('reviewSlider', 1)" class="w-10 h-10 bg-white rounded-full shadow-sm border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#2aa090] transition group">
+                <button onclick="scrollContainer('reviewSlider', 1)" class="w-10 h-10 bg-white rounded-full shadow-sm border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary transition group">
                     <i class="fas fa-arrow-right text-sm"></i>
                 </button>
             </div>
@@ -208,10 +208,10 @@
             @foreach($reviews as $review)
             <div class="min-w-[320px] w-[320px] bg-white p-8 rounded-4xl shadow-sm border border-gray-100 snap-center shrink-0 hover:shadow-xl transition duration-300">
                 <div class="flex items-center gap-4 mb-6">
-                    <img src="{{ $review['avatar'] }}" alt="{{ $review['name'] }}" class="w-14 h-14 rounded-full border-2 border-[#2aa090]/20 p-0.5">
+                    <img src="{{ $review['avatar'] }}" alt="{{ $review['name'] }}" class="w-14 h-14 rounded-full border-2 border-primary/20 p-0.5">
                     <div>
                         <h4 class="font-bold text-gray-900 text-base">{{ $review['name'] }}</h4>
-                        <span class="text-[11px] text-[#2aa090] font-bold uppercase tracking-wider bg-[#2aa090]/5 px-3 py-1 rounded-full mt-1 inline-block">{{ $review['role'] }}</span>
+                        <span class="text-[11px] text-primary font-bold uppercase tracking-wider bg-primary/5 px-3 py-1 rounded-full mt-1 inline-block">{{ $review['role'] }}</span>
                     </div>
                 </div>
                 <div class="flex text-yellow-400 text-xs mb-4 space-x-1">
@@ -225,26 +225,26 @@
 </div>
 
 <div id="tentang-kami" class="py-24 bg-white border-t border-gray-50 relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-64 h-64 bg-[#2aa090]/5 rounded-full -ml-32 -mt-32 blur-3xl"></div>
+    <div class="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full -ml-32 -mt-32 blur-3xl"></div>
     <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/5 rounded-full -mr-32 -mb-32 blur-3xl"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             <div class="relative group">
-                <div class="absolute inset-0 bg-[#2aa090] rounded-4xl rotate-6 opacity-20 group-hover:rotate-3 transition duration-500"></div>
+                <div class="absolute inset-0 bg-primary rounded-4xl rotate-6 opacity-20 group-hover:rotate-3 transition duration-500"></div>
                 <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80" 
                      alt="Tentang TripKuy" 
                      class="relative rounded-4xl shadow-2xl w-full object-cover h-[400px] group-hover:scale-[1.02] transition duration-500">
                 
                 <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block animate-bounce-slow">
                     <p class="text-sm text-gray-500 font-bold uppercase tracking-wider mb-1">Pengalaman</p>
-                    <p class="text-4xl font-extrabold text-[#2aa090]">5+ Tahun</p>
+                    <p class="text-4xl font-extrabold text-primary">5+ Tahun</p>
                 </div>
             </div>
 
             <div>
-                <span class="text-[#2aa090] font-bold tracking-widest uppercase text-sm mb-2 block">Tentang Kami</span>
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Tentang Kami</span>
                 <h2 class="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
                     Partner Perjalanan <br>Terbaik Keliling Indonesia
                 </h2>
@@ -254,20 +254,20 @@
                 
                 <ul class="space-y-4 mb-8">
                     <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-[#2aa090] mt-1"></i>
+                        <i class="fas fa-check-circle text-primary mt-1"></i>
                         <span class="text-gray-600">Garansi harga terbaik tanpa biaya tersembunyi.</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-[#2aa090] mt-1"></i>
+                        <i class="fas fa-check-circle text-primary mt-1"></i>
                         <span class="text-gray-600">Layanan pelanggan 24/7 siap menemani perjalananmu.</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <i class="fas fa-check-circle text-[#2aa090] mt-1"></i>
+                        <i class="fas fa-check-circle text-primary mt-1"></i>
                         <span class="text-gray-600">Pembayaran aman & terpercaya dengan teknologi enkripsi.</span>
                     </li>
                 </ul>
 
-                <a href="{{ route('blog') }}" class="inline-flex items-center text-[#2aa090] font-bold hover:text-[#1f7a6e] transition group">
+                <a href="{{ route('blog') }}" class="inline-flex items-center text-primary font-bold hover:text-primary-dark transition group">
                     Baca Cerita Perjalanan Kami 
                     <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                 </a>
@@ -279,7 +279,7 @@
 <div class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
         @guest
-            <div class="bg-[#2aa090] rounded-[2.5rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl shadow-[#2aa090]/40 group">
+            <div class="bg-primary rounded-[2.5rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl shadow-primary/40 group">
                 <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-20 -mt-20 pointer-events-none blur-3xl group-hover:bg-white/15 transition duration-700"></div>
                 <div class="absolute bottom-0 left-0 w-72 h-72 bg-white/10 rounded-full -ml-20 -mb-20 pointer-events-none blur-3xl group-hover:bg-white/15 transition duration-700"></div>
 
@@ -289,7 +289,7 @@
                         Nikmati diskon eksklusif hingga <span class="font-bold">30%</span>, prioritas check-in, dan akses promo rahasia. Gratis selamanya!
                     </p>
                     <div class="flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
-                        <a href="{{ route('register') }}" class="bg-white text-[#2aa090] px-10 py-4 rounded-2xl font-bold text-base shadow-xl hover:shadow-2xl hover:bg-gray-50 transition transform hover:-translate-y-1">
+                        <a href="{{ route('register') }}" class="bg-white text-primary px-10 py-4 rounded-2xl font-bold text-base shadow-xl hover:shadow-2xl hover:bg-gray-50 transition transform hover:-translate-y-1">
                             Daftar Gratis
                         </a>
                         <a href="{{ route('login') }}" class="px-10 py-4 rounded-2xl font-bold text-base border-2 border-white/30 hover:bg-white/10 transition backdrop-blur-sm">
@@ -313,8 +313,8 @@
                     <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#6b7280 1px, transparent 1px); background-size: 24px 24px;"></div>
                     
                     <div class="relative z-10 md:w-2/3 text-center md:text-left text-white">
-                        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-[#2aa090]/20 text-[#2aa090] text-xs font-bold uppercase tracking-wider rounded-full mb-4 border border-[#2aa090]/20">
-                            <span class="w-2 h-2 rounded-full bg-[#2aa090] animate-pulse"></span> Member Access
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider rounded-full mb-4 border border-primary/20">
+                            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Member Access
                         </div>
                         <h2 class="text-3xl md:text-4xl font-bold mb-4">Mau liburan ke mana lagi,<br>{{ Auth::user()->nama }}?</h2>
                         <p class="text-gray-400 text-base mb-10 max-w-lg leading-relaxed">
@@ -322,11 +322,11 @@
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <a href="{{ route('user.reservasi') }}" class="bg-[#2aa090] text-white px-8 py-4 rounded-2xl font-bold text-base shadow-lg hover:bg-[#1f7a6e] transition flex items-center justify-center gap-3 group">
+                            <a href="{{ route('user.reservasi') }}" class="bg-primary text-white px-8 py-4 rounded-2xl font-bold text-base shadow-lg hover:bg-primary-dark transition flex items-center justify-center gap-3 group">
                                 <i class="fas fa-ticket-alt group-hover:rotate-12 transition-transform"></i> Cek Booking Saya
                             </a>
                             <a href="{{ route('user.checkin') }}" class="bg-white/10 backdrop-blur text-white border border-white/20 px-8 py-4 rounded-2xl font-bold text-base hover:bg-white/20 transition flex items-center justify-center gap-3 group">
-                                <i class="fas fa-key text-[#2aa090]"></i> Check-in Online
+                                <i class="fas fa-key text-primary"></i> Check-in Online
                             </a>
                         </div>
                     </div>

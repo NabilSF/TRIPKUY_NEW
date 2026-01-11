@@ -20,7 +20,7 @@
             <div>
                 <h3 class="font-bold text-gray-800">{{ $hotel->nama_hotel }}</h3>
                 <p class="text-sm text-gray-500">{{ $kamar->nama_kamar }}</p>
-                <p class="text-[#2aa090] font-bold mt-1">Rp {{ number_format($kamar->harga, 0, ',', '.') }} / malam</p>
+                <p class="text-primary font-bold mt-1">Rp {{ number_format($kamar->harga, 0, ',', '.') }} / malam</p>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
             {{-- PERBAIKAN: id_kamar -> id --}}
             <input type="hidden" name="id_kamar" value="{{ $kamar->id }}">
             {{-- Form Input Tanggal Dll Tetap Sama --}}
-            <button type="submit" class="w-full bg-[#2aa090] text-white font-bold py-4 rounded-xl shadow-lg">Bayar & Konfirmasi</button>
+            <button type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg">Bayar & Konfirmasi</button>
         </form>
     </div>
 </div>

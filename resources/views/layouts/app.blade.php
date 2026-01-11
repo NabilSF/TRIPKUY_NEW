@@ -35,7 +35,7 @@
                 
                 <div class="col-span-1 md:col-span-1">
                     <a href="{{ route('home') }}" class="flex items-center gap-2 mb-6">
-                        <div class="w-10 h-10 bg-[#2aa090] rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-[#2aa090]/30">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/30">
                             <i class="fas fa-paper-plane"></i>
                         </div>
                         <span class="text-2xl font-extrabold text-white tracking-tight">TripKuy</span>
@@ -50,13 +50,13 @@
                     <ul class="space-y-4 text-sm text-gray-400">
                         <li>
                             {{-- Link Anchor ke section di Home --}}
-                            <a href="{{ route('home') }}#tentang-kami" class="hover:text-[#2aa090] transition flex items-center gap-2">
+                            <a href="{{ route('home') }}#tentang-kami" class="hover:text-primary transition flex items-center gap-2">
                                 Tentang Kami
                             </a>
                         </li>
                         <li>
                             {{-- Link ke Halaman Blog --}}
-                            <a href="{{ route('blog') }}" class="hover:text-[#2aa090] transition">
+                            <a href="{{ route('blog') }}" class="hover:text-primary transition">
                                 Blog & Inspirasi
                             </a>
                         </li>
@@ -66,9 +66,9 @@
                 <div>
                     <h4 class="font-bold text-white mb-6">Bantuan</h4>
                     <ul class="space-y-4 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-[#2aa090] transition">Pusat Bantuan</a></li>
-                        <li><a href="#" class="hover:text-[#2aa090] transition">Kebijakan Privasi</a></li>
-                        <li><a href="#" class="hover:text-[#2aa090] transition">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Pusat Bantuan</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Syarat & Ketentuan</a></li>
                     </ul>
                 </div>
 
@@ -76,15 +76,15 @@
                     <h4 class="font-bold text-white mb-6">Hubungi Kami</h4>
                     <ul class="space-y-4 text-sm text-gray-400">
                         <li class="flex items-start gap-3">
-                            <i class="fas fa-map-marker-alt text-[#2aa090] mt-1"></i>
+                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
                             <span>Dusun II, Makamhaji, Kec. Kartasura<br>Sukoharjo, Indonesia</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-[#2aa090]"></i>
+                            <i class="fas fa-envelope text-primary"></i>
                             <span>support@tripkuy.com</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-[#2aa090]"></i>
+                            <i class="fas fa-phone text-primary"></i>
                             <span>+62 812 3332 9103</span>
                         </li>
                     </ul>
@@ -94,9 +94,9 @@
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-xs text-gray-500">© 2026 TripKuy Indonesia. All rights reserved.</p>
                 <div class="flex gap-4">
-                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#2aa090] hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#2aa090] hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#2aa090] hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>

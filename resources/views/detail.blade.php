@@ -4,13 +4,13 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <div class="mb-6">
         <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
-            <a href="{{ route('home') }}" class="hover:text-[#2aa090]">Home</a>
+            <a href="{{ route('home') }}" class="hover:text-primary">Home</a>
             <i class="fas fa-chevron-right text-xs"></i>
             <span class="text-gray-900 font-medium">Detail Hotel</span>
         </div>
         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{{ $hotel->nama_hotel }}</h1>
         <div class="flex items-center gap-4 text-sm text-gray-600">
-            <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-[#2aa090]"></i> {{ $hotel->alamat }}</span>
+            <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-primary"></i> {{ $hotel->alamat }}</span>
             <span class="flex items-center gap-1"><i class="fas fa-star text-yellow-400"></i> 4.8 (Ulasan)</span>
         </div>
     </div>
@@ -74,14 +74,14 @@
                             </div>
                             <div class="flex justify-between items-end mt-4 pt-4 border-t border-gray-100">
                                 <div>
-                                    <span class="text-2xl font-bold text-[#2aa090]">Rp {{ number_format($kamar->harga, 0, ',', '.') }}</span>
+                                    <span class="text-2xl font-bold text-primary">Rp {{ number_format($kamar->harga, 0, ',', '.') }}</span>
                                     <span class="text-xs text-gray-400">/ malam</span>
                                 </div>
                                 <form action="{{ route('user.reservasi') }}" method="GET">
                                     {{-- PERBAIKAN: id_hotel -> id dan id_kamar -> id --}}
                                     <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
                                     <input type="hidden" name="room_id" value="{{ $kamar->id }}">
-                                    <button class="bg-[#2aa090] hover:bg-[#1f7a6e] text-white px-5 py-2 rounded-lg font-bold text-sm shadow-md transition transform hover:-translate-y-0.5">Pilih Kamar</button>
+                                    <button class="bg-primary hover:bg-primary-dark text-white px-5 py-2 rounded-lg font-bold text-sm shadow-md transition transform hover:-translate-y-0.5">Pilih Kamar</button>
                                 </form>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
             <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-24">
                 <div class="text-center mb-6">
                     <p class="text-sm text-gray-500">Harga mulai dari</p>
-                    <h3 class="text-3xl font-bold text-[#2aa090]">Rp {{ number_format($hotel->tipeKamars->min('harga') ?? 0, 0, ',', '.') }}</h3>
+                    <h3 class="text-3xl font-bold text-primary">Rp {{ number_format($hotel->tipeKamars->min('harga') ?? 0, 0, ',', '.') }}</h3>
                 </div>
                 <div class="bg-blue-50 p-3 rounded-lg text-xs text-blue-700 mb-4 border border-blue-100 flex items-start gap-2">
                     <i class="fas fa-info-circle mt-0.5"></i> <span>Pilih tipe kamar di samping untuk melanjutkan pemesanan.</span>

@@ -7,10 +7,10 @@
             <span class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-2"><i class="fas fa-check"></i></span>
             <span class="text-green-600">Pesan</span>
         </div>
-        <div class="w-16 h-1 bg-gray-200 mx-4 relative"><div class="absolute top-0 left-0 h-full bg-[#2aa090] w-full"></div></div>
+        <div class="w-16 h-1 bg-gray-200 mx-4 relative"><div class="absolute top-0 left-0 h-full bg-primary w-full"></div></div>
         <div class="flex items-center">
-            <span class="w-8 h-8 rounded-full bg-[#2aa090] text-white flex items-center justify-center mr-2">2</span>
-            <span class="text-[#2aa090] font-bold">Bayar</span>
+            <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-2">2</span>
+            <span class="text-primary font-bold">Bayar</span>
         </div>
         <div class="w-16 h-1 bg-gray-200 mx-4"></div>
         <div class="flex items-center">
@@ -59,12 +59,12 @@
                 {{-- Detail Biaya --}}
                 <div class="flex justify-between items-center mb-6">
                     <span class="font-bold text-gray-800 text-lg">Total Bayar</span>
-                    <span class="font-bold text-[#2aa090] text-xl">Rp {{ number_format($reservasi->pembayaran->total_harga, 0, ',', '.') }}</span>
+                    <span class="font-bold text-primary text-xl">Rp {{ number_format($reservasi->pembayaran->total_harga, 0, ',', '.') }}</span>
                 </div>
                 {{-- PERBAIKAN: id_reservasi -> id --}}
                 <form action="{{ route('user.pembayaran.process', $reservasi->id) }}" method="POST">
                     @csrf
-                    <button type="submit" class="w-full bg-[#2aa090] hover:bg-[#1f7a6e] text-white font-bold py-4 rounded-xl shadow-lg transition flex justify-center items-center gap-2 group">
+                    <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 rounded-xl shadow-lg transition flex justify-center items-center gap-2 group">
                         <span>Bayar Sekarang</span> <i class="fas fa-lock group-hover:scale-110 transition-transform"></i>
                     </button>
                 </form>

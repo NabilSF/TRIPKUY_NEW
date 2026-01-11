@@ -6,7 +6,7 @@
 @section('content')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div class="relative bg-linear-to-r from-[#2aa090] to-[#1f7a6e] rounded-2xl p-8 text-white shadow-lg mb-8 overflow-hidden">
+<div class="relative bg-linear-to-r from-primary to-primary-dark rounded-2xl p-8 text-white shadow-lg mb-8 overflow-hidden">
     <div class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
     <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-4">
         <div>
@@ -26,7 +26,7 @@
     </div>
     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
         <p class="text-xs font-bold text-gray-400 uppercase">Pendapatan</p>
-        <h3 class="text-3xl font-bold text-[#2aa090] mt-1">Rp {{ number_format($pendapatan, 0, ',', '.') }}</h3>
+        <h3 class="text-3xl font-bold text-primary mt-1">Rp {{ number_format($pendapatan, 0, ',', '.') }}</h3>
     </div>
     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
         <p class="text-xs font-bold text-gray-400 uppercase">Perlu Tindakan</p>

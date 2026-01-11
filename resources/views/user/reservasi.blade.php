@@ -17,7 +17,7 @@
                     @if($res->status == 'pending')
                         <span class="text-yellow-600 font-bold bg-yellow-50 px-3 py-1 rounded-full text-sm">Menunggu Pembayaran</span>
                         {{-- PERBAIKAN: id_reservasi -> id --}}
-                        <a href="{{ route('user.pembayaran', $res->id) }}" class="mt-3 text-sm text-[#2aa090] font-bold hover:underline"><i class="fas fa-arrow-right"></i> Lanjut Bayar</a>
+                        <a href="{{ route('user.pembayaran', $res->id) }}" class="mt-3 text-sm text-primary font-bold hover:underline"><i class="fas fa-arrow-right"></i> Lanjut Bayar</a>
                     @elseif($res->status == 'confirmed')
                         <span class="text-green-600 font-bold bg-green-50 px-3 py-1 rounded-full text-sm">Confirmed (Lunas)</span>
                     @endif

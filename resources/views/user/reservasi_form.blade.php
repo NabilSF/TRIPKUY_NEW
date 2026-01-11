@@ -38,7 +38,7 @@
             <div>
                 <h3 class="font-bold text-gray-800">{{ $hotel->nama_hotel }}</h3>
                 <p class="text-sm text-gray-500">{{ $kamar->nama_kamar }}</p>
-                <p class="text-[#2aa090] font-bold mt-1">Rp {{ number_format($kamar->harga, 0, ',', '.') }} / malam</p>
+                <p class="text-primary font-bold mt-1">Rp {{ number_format($kamar->harga, 0, ',', '.') }} / malam</p>
                 <p class="text-xs text-gray-400 mt-1"><i class="fas fa-map-marker-alt"></i> {{ $hotel->kota }}</p>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 <input type="number" name="jumlah_kamar" value="1" min="1" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-primary outline-none" required>
             </div>
 
-            <button type="submit" class="w-full bg-[#2aa090] hover:bg-[#1f7a6e] text-white font-bold py-4 rounded-xl shadow-lg transition">
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 rounded-xl shadow-lg transition">
                 Bayar & Konfirmasi
             </button>
         </form>

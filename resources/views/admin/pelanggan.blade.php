@@ -34,7 +34,7 @@
             
             {{-- Search Bar (Visual Only) --}}
             <div class="relative">
-                <input type="text" id="searchUser" placeholder="Cari nama..." class="pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#2aa090] transition w-64">
+                <input type="text" id="searchUser" placeholder="Cari nama..." class="pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-primary transition w-64">
                 <i class="fas fa-search absolute left-3 top-3 text-gray-400 text-xs"></i>
             </div>
         </div>
@@ -56,7 +56,7 @@
                             <div class="flex items-center gap-3">
                                 <img src="https://ui-avatars.com/api/?name={{ urlencode($user->nama) }}&background=random&color=fff" class="w-10 h-10 rounded-full border border-gray-200">
                                 <div>
-                                    <div class="font-bold text-gray-800 group-hover:text-[#2aa090] transition">{{ $user->nama }}</div>
+                                    <div class="font-bold text-gray-800 group-hover:text-primary transition">{{ $user->nama }}</div>
                                     <div class="text-xs text-gray-400">ID: #{{ $user->id }}</div>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                         </td>
                         <td class="p-4 text-center">
                             <button onclick="openDetailModal('{{ $user->nama }}', '{{ $user->email }}', '{{ $user->no_telepon ?? '-' }}', '{{ $user->role }}', {{ $user->reservasis_count }})" 
-                                    class="text-gray-400 hover:text-[#2aa090] transition p-2 bg-gray-100 rounded-lg hover:bg-[#2aa090]/10 mr-2" title="Lihat Detail">
+                                    class="text-gray-400 hover:text-primary transition p-2 bg-gray-100 rounded-lg hover:bg-primary/10 mr-2" title="Lihat Detail">
                                 <i class="fas fa-eye"></i>
                             </button>
                             
@@ -119,7 +119,7 @@
         </div>
         
         <h3 id="modalNama" class="text-xl font-bold text-gray-800"></h3>
-        <span id="modalRole" class="inline-block bg-[#2aa090]/10 text-[#2aa090] px-3 py-1 rounded-full text-xs font-bold mt-2 uppercase">USER</span>
+        <span id="modalRole" class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold mt-2 uppercase">USER</span>
         
         <div class="mt-6 space-y-3 text-left bg-gray-50 p-4 rounded-xl">
             <div class="flex justify-between border-b border-gray-200 pb-2">
@@ -132,7 +132,7 @@
             </div>
             <div class="flex justify-between pt-1">
                 <span class="text-gray-500 text-xs uppercase font-bold">Total Reservasi</span>
-                <span id="modalReservasi" class="font-bold text-[#2aa090]"></span>
+                <span id="modalReservasi" class="font-bold text-primary"></span>
             </div>
         </div>
 

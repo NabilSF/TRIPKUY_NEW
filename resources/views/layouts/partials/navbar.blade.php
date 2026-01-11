@@ -1,4 +1,4 @@
-<nav class="glass-nav fixed w-full z-50 top-0 transition-all duration-300" x-data="{ open: false, userOpen: false }">
+<nav class="glass-nav fixed w-full z-50 top-0 transition-all duration-300" x-data="{ open: false, dropdownOpen: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
             
@@ -10,7 +10,6 @@
             </a>
 
             <div class="hidden md:flex items-center space-x-1">
-                
                 <a href="{{ route('home') }}" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary rounded-full hover:bg-gray-50 transition-all {{ request()->routeIs('home') ? 'text-primary bg-primary/5' : '' }}">
                     Home
                 </a>
@@ -44,7 +43,7 @@
                         </a>
                     @endif
 
-                    <div class="relative ml-1" x-data="{ dropdownOpen: false }">
+                    <div class="relative ml-1">
                         <button @click="dropdownOpen = !dropdownOpen" @click.away="dropdownOpen = false" class="flex items-center gap-3 pl-2 pr-1 py-1 rounded-full border border-gray-200 bg-white hover:border-primary/50 hover:shadow-md transition-all duration-300">
                             <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 border border-white shadow-inner">
                                 <i class="fas fa-user text-xs"></i>
@@ -55,7 +54,13 @@
                             </div>
                         </button>
                         
-                        <div x-show="dropdownOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-2" class="absolute right-0 top-full mt-2 w-60 bg-white rounded-2xl shadow-xl ring-1 ring-black/5 z-50" style="display: none;">
+                        <div x-show="dropdownOpen" 
+                             x-transition:enter="transition ease-out duration-200" 
+                             x-transition:enter-start="opacity-0 translate-y-2" 
+                             x-transition:enter-end="opacity-100 translate-y-0" 
+                             class="absolute right-0 top-full mt-2 w-60 bg-white rounded-2xl shadow-xl ring-1 ring-black/5 z-50" 
+                             style="display: none;">
+                            
                             <div class="px-5 py-4 border-b border-gray-50 bg-gray-50/50 rounded-t-2xl">
                                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Login Sebagai</p>
                                 <p class="text-sm font-bold text-gray-900 truncate">{{ Auth::user()->email }}</p>
@@ -101,9 +106,13 @@
         </div>
     </div>
 
-    <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2" class="md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg" style="display: none;">
+    <div x-show="open" 
+         x-transition:enter="transition ease-out duration-200" 
+         x-transition:enter-start="opacity-0 -translate-y-2" 
+         x-transition:enter-end="opacity-100 translate-y-0" 
+         class="md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg" 
+         style="display: none;">
         <div class="px-4 pt-4 pb-6 space-y-2">
-            
             <a href="{{ route('home') }}" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 {{ request()->routeIs('home') ? 'bg-primary/5 text-primary' : '' }}">
                 <i class="fas fa-home w-6 text-center mr-2"></i> Home
             </a>
@@ -111,23 +120,17 @@
                 <i class="fas fa-newspaper w-6 text-center mr-2"></i> Blog
             </a>
 
-            <div class="border-t border-gray-100 my-2"></div>
-
             @guest
                 <div class="grid grid-cols-2 gap-4 px-2 mt-4">
-                    <a href="{{ route('login') }}" class="flex items-center justify-center px-4 py-3 border border-gray-300 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-50">
-                        Masuk
-                    </a>
-                    <a href="{{ route('register') }}" class="flex items-center justify-center px-4 py-3 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primaryDark shadow-md">
-                        Daftar
-                    </a>
+                    <a href="{{ route('login') }}" class="flex items-center justify-center px-4 py-3 border border-gray-200 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-50">Masuk</a>
+                    <a href="{{ route('register') }}" class="flex items-center justify-center px-4 py-3 bg-primary text-white rounded-xl text-sm font-bold shadow-md">Daftar</a>
                 </div>
             @endguest
 
             @auth
-                <div class="px-4 py-3 bg-gray-50 rounded-xl mt-2 mb-2">
+                <div class="px-4 py-3 bg-gray-50 rounded-xl mt-2">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-500 border border-gray-200 shadow-sm">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-500 border border-gray-200">
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="overflow-hidden">
@@ -136,27 +139,10 @@
                         </div>
                     </div>
                 </div>
-
-                @if(Auth::user()->role === 'user')
-                    <a href="{{ route('user.profile') }}" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">
-                        <i class="fas fa-user-circle w-6 text-center mr-2"></i> Profil Saya
-                    </a>
-                    <a href="{{ route('user.reservasi') }}" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">
-                        <i class="fas fa-history w-6 text-center mr-2"></i> Riwayat Booking
-                    </a>
-                @endif
-
-                @if(Auth::user()->role === 'admin')
-                    <a href="{{ route('admin.dashboard') }}" class="block px-4 py-3 rounded-xl text-base font-medium text-red-600 bg-red-50 hover:bg-red-100">
-                        <i class="fas fa-shield-alt w-6 text-center mr-2"></i> Panel Admin
-                    </a>
-                @endif
-
-                <form action="{{ route('logout') }}" method="POST" class="pt-2">
+                <a href="{{ route('user.profile') }}" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Profil Saya</a>
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="w-full flex items-center px-4 py-3 rounded-xl text-base font-medium text-red-600 hover:bg-red-50 transition-colors">
-                        <i class="fas fa-sign-out-alt w-6 text-center mr-2"></i> Logout
-                    </button>
+                    <button class="w-full text-left px-4 py-3 text-red-600 font-medium">Logout</button>
                 </form>
             @endauth
         </div>

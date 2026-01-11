@@ -7,7 +7,7 @@
 <div class="space-y-6">
     <div class="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-gray-100">
         <h3 class="font-bold text-gray-800 text-lg">Total {{ $hotels->count() }} Properti Terdaftar</h3>
-        <button onclick="openCreateModal()" class="bg-[#2aa090] hover:bg-[#1f7a6e] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition flex items-center gap-2">
+        <button onclick="openCreateModal()" class="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition flex items-center gap-2">
             <i class="fas fa-plus"></i> Tambah Hotel Baru
         </button>
     </div>
@@ -34,8 +34,8 @@
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition group h-full flex flex-col">
                 <div class="relative h-48 overflow-hidden">
                     <img src="{{ $imgUrl }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                    <div class="absolute top-3 right-3 bg-white/90 px-2 py-1 rounded text-xs font-bold text-[#2aa090] shadow-sm">
-                        <i class="fas fa-map-marker-alt mr-1"></i> {{ $hotel->kota ?? 'Indonesia' }}
+                    <div class="absolute top-3 right-3 bg-white/90 px-2 py-1 rounded text-xs font-bold text-primary shadow-sm">
+                        <i class="fas fa-map-marker-alt mr-1 text-primary"></i> {{ $hotel->kota ?? 'Indonesia' }}
                     </div>
                 </div>
                 
@@ -45,7 +45,7 @@
                     
                     <div class="mt-auto pt-4 border-t border-gray-50 flex gap-2">
                         <button onclick="openEditModal({{ $hotel->id }}, '{{ addslashes($hotel->nama_hotel) }}', '{{ addslashes($hotel->kota) }}', '{{ addslashes($hotel->alamat) }}')" 
-                                class="flex-1 bg-gray-50 hover:bg-[#2aa090] text-gray-600 hover:text-white py-2 rounded-lg text-sm font-semibold transition flex justify-center items-center gap-2">
+                                class="flex-1 bg-gray-50 hover:bg-primary text-gray-600 hover:text-white py-2 rounded-lg text-sm font-semibold transition flex justify-center items-center gap-2">
                             <i class="fas fa-edit"></i> Edit
                         </button>
                     </div>
@@ -71,12 +71,12 @@
             <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
                 <div>
                     <label class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1">Nama Hotel</label>
-                    <input type="text" name="nama_hotel" id="modalNama" class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#2aa090] focus:ring-1 focus:ring-[#2aa090] transition" required>
+                    <input type="text" name="nama_hotel" id="modalNama" class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" required>
                 </div>
                 
                 <div>
                     <label class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1">Kota</label>
-                    <select name="kota" id="modalKota" class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#2aa090] focus:ring-1 focus:ring-[#2aa090] transition bg-white">
+                    <select name="kota" id="modalKota" class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition bg-white">
                         <option value="Jakarta">Jakarta</option>
                         <option value="Bali">Bali</option>
                         <option value="Bandung">Bandung</option>
@@ -91,7 +91,7 @@
                 
                 <div>
                     <label class="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-1">Alamat Lengkap</label>
-                    <textarea name="alamat" id="modalAlamat" rows="3" class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-[#2aa090] focus:ring-1 focus:ring-[#2aa090] transition resize-none" required></textarea>
+                    <textarea name="alamat" id="modalAlamat" rows="3" class="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition resize-none" required></textarea>
                 </div>
                 
                 <div>
@@ -111,7 +111,7 @@
 
             <div class="mt-6 flex justify-end gap-3 pt-4 border-t border-gray-100">
                 <button type="button" onclick="closeModal()" class="px-5 py-2.5 text-gray-600 hover:bg-gray-100 rounded-lg font-medium transition">Batal</button>
-                <button type="submit" class="px-6 py-2.5 bg-[#2aa090] text-white font-bold rounded-lg hover:bg-[#1f7a6e] shadow-lg shadow-[#2aa090]/20 transition flex items-center gap-2">
+                <button type="submit" class="px-6 py-2.5 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark shadow-lg shadow-primary/20 transition flex items-center gap-2">
                     <i class="fas fa-save"></i> Simpan
                 </button>
             </div>
@@ -140,10 +140,12 @@
         
         // Tampilkan modal
         modal.classList.remove('hidden');
+        modal.classList.add('flex');
     }
 
     function closeModal() {
         document.getElementById('editModal').classList.add('hidden');
+        modal.classList.add('flex');
     }
     
     // Optional: Close modal on Esc key

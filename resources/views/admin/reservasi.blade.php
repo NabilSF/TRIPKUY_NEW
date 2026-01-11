@@ -6,7 +6,7 @@
 @section('content')
 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
     <div class="p-6 border-b border-gray-100 flex justify-between items-center">
-        <h3 class="font-bold text-gray-800"><i class="fas fa-list text-[#2aa090]"></i> Status Booking</h3>
+        <h3 class="font-bold text-gray-800"><i class="fas fa-list text-primary"></i> Status Booking</h3>
         
         <div class="text-xs text-gray-500 italic">
             *Admin berhak membatalkan pesanan yang belum dibayar > 1x24 jam.
