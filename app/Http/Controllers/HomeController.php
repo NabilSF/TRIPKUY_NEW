@@ -36,7 +36,11 @@ class HomeController extends Controller
             $kamar = TipeKamar::with('hotel')->findOrFail($request->room_id);
             return view('user.reservasi_form', compact('kamar'));
         }
-        $reservasis = Reservasi::with(['tipeKamar.hotel', 'pembayaran'])->where('user_id', Auth::id())->orderBy('tanggal_reservasi', 'desc')->get();
+        // Gunakan 'tipeKamar.hotel'
+        $reservasis = Reservasi::with(['tipeKamar.hotel', 'pembayaran'])
+                        ->where('user_id', Auth::id())
+                        ->orderBy('tanggal_reservasi', 'desc')
+                        ->get();
         return view('user.reservasi', compact('reservasis'));
     }
 
@@ -55,8 +59,8 @@ class HomeController extends Controller
         $kamar = TipeKamar::findOrFail($request->id_kamar);
         
         // Hitung Selisih Malam
-        $checkIn = \Carbon\Carbon::parse($request->check_in);
-        $checkOut = \Carbon\Carbon::parse($request->check_out);
+        $checkIn = Carbon::parse($request->check_in);
+        $checkOut = Carbon::parse($request->check_out);
         $totalMalam = $checkIn->diffInDays($checkOut);
         
         // Pastikan minimal 1 malam
@@ -86,7 +90,10 @@ class HomeController extends Controller
         return redirect()->route('user.pembayaran', $reservasi->id);
     }
     public function showPayment($id) {
-        $reservasi = Reservasi::with(['tipeKamar.hotel', 'pembayaran'])->where('user_id', Auth::id())->findOrFail($id);
+        // Gunakan 'tipeKamar.hotel'
+        $reservasi = Reservasi::with(['tipeKamar.hotel', 'pembayaran'])
+                        ->where('user_id', Auth::id())
+                        ->findOrFail($id);
         return view('pembayaran', compact('reservasi'));
     }
 

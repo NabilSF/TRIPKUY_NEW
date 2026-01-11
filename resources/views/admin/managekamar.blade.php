@@ -41,7 +41,7 @@
     </div>
 </div>
 
-<div id="priceModal" class="fixed inset-0 z-50 hidden bg-black/50 flex items-center justify-center backdrop-blur-sm">
+<div id="priceModal" class="fixed inset-0 z-50 hidden bg-black/50 items-center justify-center backdrop-blur-sm">
     <div class="bg-white w-96 rounded-2xl p-6 shadow-2xl">
         <h3 class="text-lg font-bold text-gray-800 mb-4">Update Harga</h3>
         <p id="kamarNameDisplay" class="text-sm text-gray-500 mb-4"></p>

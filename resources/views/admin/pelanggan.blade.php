@@ -108,7 +108,7 @@
     </div>
 </div>
 
-<div id="detailUserModal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+<div id="detailUserModal" class="fixed inset-0 z-50 hidden items-center justify-center">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeDetailModal()"></div>
     
     <div class="bg-white w-full max-w-sm rounded-2xl p-6 shadow-2xl transform transition-all relative z-10 scale-100 text-center">

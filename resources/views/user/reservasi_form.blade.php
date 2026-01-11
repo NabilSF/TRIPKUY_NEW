@@ -19,7 +19,7 @@
         @endif
 
         <div class="bg-gray-50 p-4 rounded-xl mb-6 flex gap-4">
-            <div class="w-24 h-24 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+            <div class="w-24 h-24 bg-gray-200 rounded-lg overflow-hidden shrink-0">
                 @php
                     $hotel = $kamar->hotel;
                     // PERBAIKAN: Gunakan $hotel->id (bukan id_hotel)

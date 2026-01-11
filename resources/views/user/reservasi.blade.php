@@ -25,7 +25,7 @@
                     <p class="text-xs text-gray-400 mt-3">ID: #{{ $res->id }}</p>
                 </div>
                 <div class="md:w-3/4 flex flex-col justify-between">
-                    <h3 class="text-xl font-bold text-gray-800 mb-1">{{ $res->kamar->hotel->nama_hotel }}</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">{{ $res->tipeKamar->hotel->nama_hotel }}</h3>
                     {{-- Bagian Button Cancel --}}
                     <div class="flex items-center gap-4 pt-4 border-t border-gray-50">
                         @if(($res->status == 'pending' || $res->status == 'confirmed'))

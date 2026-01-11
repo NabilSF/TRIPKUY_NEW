@@ -66,7 +66,7 @@
                     {{ $article['category'] }}
                 </div>
             </div>
-            <div class="p-6 flex flex-col flex-grow">
+            <div class="p-6 flex flex-col grow">
                 <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
                     <i class="far fa-calendar-alt"></i> {{ $article['date'] }}
                     <span>•</span>
@@ -75,7 +75,7 @@
                 <h3 class="font-bold text-xl text-gray-800 mb-3 line-clamp-2 group-hover:text-[#2aa090] transition">
                     {{ $article['title'] }}
                 </h3>
-                <p class="text-sm text-gray-500 line-clamp-3 mb-4 flex-grow">
+                <p class="text-sm text-gray-500 line-clamp-3 mb-4 grow">
                     {{ $article['excerpt'] }}
                 </p>
                 <a href="#" class="text-[#2aa090] font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all mt-auto">

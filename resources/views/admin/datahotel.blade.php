@@ -39,9 +39,9 @@
                     </div>
                 </div>
                 
-                <div class="p-5 flex-grow flex flex-col">
+                <div class="p-5 grow flex flex-col">
                     <h3 class="font-bold text-lg text-gray-800 mb-1 line-clamp-1">{{ $hotel->nama_hotel }}</h3>
-                    <p class="text-sm text-gray-500 mb-4 line-clamp-2 flex-grow">{{ $hotel->alamat }}</p>
+                    <p class="text-sm text-gray-500 mb-4 line-clamp-2 grow">{{ $hotel->alamat }}</p>
                     
                     <div class="mt-auto pt-4 border-t border-gray-50 flex gap-2">
                         <button onclick="openEditModal({{ $hotel->id }}, '{{ addslashes($hotel->nama_hotel) }}', '{{ addslashes($hotel->kota) }}', '{{ addslashes($hotel->alamat) }}')" 
@@ -55,7 +55,7 @@
     </div>
 </div>
 
-<div id="editModal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+<div id="editModal" class="fixed inset-0 z-50 hidden items-center justify-center">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
     
     <div class="bg-white w-full max-w-lg rounded-2xl p-6 shadow-2xl transform transition-all relative z-10 scale-100">

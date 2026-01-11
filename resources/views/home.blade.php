@@ -4,21 +4,21 @@
 
 @section('content')
 
-<div class="relative h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
+<div class="relative h-150 flex items-center justify-center bg-gray-900 overflow-hidden">
     <div class="absolute inset-0 z-0">
         <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80" 
              alt="Luxury Hotel" 
              class="w-full h-full object-cover opacity-60 scale-105 animate-slow-zoom">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-gray-50"></div>
+        <div class="absolute inset-0 bg-linear-to-b from-black/80 via-black/20 to-gray-50"></div>
     </div>
 
-    <div class="relative z-10 w-full max-w-5xl px-4 text-center mt-[-20px]">
+    <div class="relative z-10 w-full max-w-5xl px-4 text-center -mt-5">
         <div class="inline-block px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold tracking-widest uppercase mb-6 shadow-lg animate-fade-in-up">
             #1 Platform Booking Indonesia
         </div>
         <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-8 drop-shadow-2xl tracking-tight leading-tight animate-fade-in-up animation-delay-100 font-sans">
             Wujudkan Liburan<br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#2aa090] to-teal-300">Impianmu Sekarang</span>
+            <span class="text-transparent bg-clip-text bg-linear-to-r from-[#2aa090] to-teal-300">Impianmu Sekarang</span>
         </h1>
         
         <div class="animate-fade-in-up animation-delay-200">
@@ -50,14 +50,14 @@
         @endphp
 
         @foreach($destinasi as $d)
-        <div class="group relative h-80 rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-default">
+        <div class="group relative h-80 rounded-4xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-default">
             <img src="{{ $d['img'] }}" alt="{{ $d['kota'] }}" class="absolute inset-0 w-full h-full object-cover transition duration-1000 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition duration-500"></div>
+            <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition duration-500"></div>
             
             <div class="absolute bottom-0 left-0 p-8 w-full translate-y-2 group-hover:translate-y-0 transition duration-500">
                 <h3 class="text-2xl font-bold text-white mb-2 tracking-wide">{{ $d['kota'] }}</h3>
                 <div class="w-12 h-1 bg-[#2aa090] rounded-full mb-3"></div>
-                <p class="text-sm text-gray-300 font-medium font-light opacity-90 group-hover:text-white transition">{{ $d['desc'] }}</p>
+                <p class="text-sm text-gray-300 font-medium opacity-90 group-hover:text-white transition">{{ $d['desc'] }}</p>
             </div>
             
             <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-500 border border-white/20">
@@ -131,7 +131,7 @@
                 @endphp
 
                 {{-- PERBAIKAN: id_hotel -> id --}}
-                <div class="min-w-[280px] w-[280px] bg-white rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-15px_rgba(42,160,144,0.3)] transition-all duration-300 border border-gray-50 flex-shrink-0 snap-start group cursor-pointer relative hover:-translate-y-2" onclick="window.location='{{ route('detail', $h->id) }}'">
+                <div class="min-w-[280px] w-[280px] bg-white rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_50px_-15px_rgba(42,160,144,0.3)] transition-all duration-300 border border-gray-50 shrink-0 snap-start group cursor-pointer relative hover:-translate-y-2" onclick="window.location='{{ route('detail', $h->id) }}'">
                     
                     <div class="relative h-48 overflow-hidden rounded-t-3xl">
                         <img src="{{ $imageUrl }}" alt="{{ $h->nama_hotel }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -206,7 +206,7 @@
 
         <div id="reviewSlider" class="flex gap-6 overflow-x-auto pb-8 scroll-smooth no-scrollbar snap-x snap-mandatory px-1">
             @foreach($reviews as $review)
-            <div class="min-w-[320px] w-[320px] bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 snap-center flex-shrink-0 hover:shadow-xl transition duration-300">
+            <div class="min-w-[320px] w-[320px] bg-white p-8 rounded-4xl shadow-sm border border-gray-100 snap-center shrink-0 hover:shadow-xl transition duration-300">
                 <div class="flex items-center gap-4 mb-6">
                     <img src="{{ $review['avatar'] }}" alt="{{ $review['name'] }}" class="w-14 h-14 rounded-full border-2 border-[#2aa090]/20 p-0.5">
                     <div>
@@ -232,10 +232,10 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             <div class="relative group">
-                <div class="absolute inset-0 bg-[#2aa090] rounded-[2rem] rotate-6 opacity-20 group-hover:rotate-3 transition duration-500"></div>
+                <div class="absolute inset-0 bg-[#2aa090] rounded-4xl rotate-6 opacity-20 group-hover:rotate-3 transition duration-500"></div>
                 <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80" 
                      alt="Tentang TripKuy" 
-                     class="relative rounded-[2rem] shadow-2xl w-full object-cover h-[400px] group-hover:scale-[1.02] transition duration-500">
+                     class="relative rounded-4xl shadow-2xl w-full object-cover h-[400px] group-hover:scale-[1.02] transition duration-500">
                 
                 <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block animate-bounce-slow">
                     <p class="text-sm text-gray-500 font-bold uppercase tracking-wider mb-1">Pengalaman</p>
@@ -309,7 +309,7 @@
       @auth
             @if(Auth::user()->role === 'user')
                 <div class="bg-gray-900 rounded-[2.5rem] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl">
-                    <div class="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-800"></div>
+                    <div class="absolute inset-0 bg-linear-to-r from-gray-900 to-gray-800"></div>
                     <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#6b7280 1px, transparent 1px); background-size: 24px 24px;"></div>
                     
                     <div class="relative z-10 md:w-2/3 text-center md:text-left text-white">

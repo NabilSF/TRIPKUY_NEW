@@ -6,7 +6,7 @@
 @section('content')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div class="relative bg-gradient-to-r from-[#2aa090] to-[#1f7a6e] rounded-2xl p-8 text-white shadow-lg mb-8 overflow-hidden">
+<div class="relative bg-linear-to-r from-[#2aa090] to-[#1f7a6e] rounded-2xl p-8 text-white shadow-lg mb-8 overflow-hidden">
     <div class="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
     <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-4">
         <div>

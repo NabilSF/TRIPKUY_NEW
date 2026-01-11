@@ -105,13 +105,13 @@
                     <div class="text-sm font-bold text-gray-800">{{ Auth::user()->nama }}</div>
                     <div class="text-xs text-[#2aa090] font-medium">Administrator</div>
                 </div>
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2aa090] to-teal-400 flex items-center justify-center text-white font-bold shadow-md">
+                <div class="w-10 h-10 rounded-full bg-linear-to-br from-[#2aa090] to-teal-400 flex items-center justify-center text-white font-bold shadow-md">
                     {{ substr(Auth::user()->nama, 0, 1) }}
                 </div>
             </div>
         </header>
 
-        <div class="p-8 flex-grow">
+        <div class="p-8 grow">
             @yield('content')
         </div>
         

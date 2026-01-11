@@ -6,11 +6,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'TripKuy - Booking Hotel Murah & Nyaman')</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     
     <script>
         tailwind.config = {
@@ -46,7 +45,7 @@
 
     @include('layouts.partials.navbar')
 
-    <main class="flex-grow pt-20">
+    <main class="grow pt-20">
         @yield('content')
     </main>
 

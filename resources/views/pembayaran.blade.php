@@ -28,9 +28,9 @@
                 </div>
                 <div class="p-6">
                     <div class="flex gap-4 mb-6">
-                        <div class="w-24 h-24 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+                        <div class="w-24 h-24 bg-gray-200 rounded-lg overflow-hidden shrink-0">
                             @php
-                                $hotel = $reservasi->kamar->hotel;
+                                $hotel = $reservasi->tipeKamar->hotel;
                                 // PERBAIKAN: id_hotel -> id
                                 if ($hotel->gambar && file_exists(public_path('storage/' . $hotel->gambar))) {
                                     $imgUrl = asset('storage/' . $hotel->gambar);
@@ -44,7 +44,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-lg text-gray-800">{{ $hotel->nama_hotel }}</h4>
-                            <p class="text-sm text-gray-500">{{ $reservasi->kamar->nama_kamar }}</p>
+                            <p class="text-sm text-gray-500">{{ $reservasi->tipeKamar->nama_kamar }}</p>
                         </div>
                     </div>
                     {{-- Info Check-in Tetap Sama --}}

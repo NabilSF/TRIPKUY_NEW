@@ -68,15 +68,15 @@
                     </td>
                     <td class="p-4">
                         @if($res->status == 'pending')
-                            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-[80px]">Pending</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-20">Pending</span>
                         @elseif($res->status == 'confirmed')
-                            <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-[80px]">Confirmed</span>
+                            <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-20">Confirmed</span>
                         @elseif($res->status == 'checked_in')
-                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-[80px]">Check-in</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-20">Check-in</span>
                         @elseif($res->status == 'completed')
-                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-[80px]">Selesai</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-20">Selesai</span>
                         @else
-                            <span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-[80px]">Dibatalkan</span>
+                            <span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-bold inline-block text-center min-w-20">Dibatalkan</span>
                         @endif
                     </td>
                     <td class="p-4 text-center">

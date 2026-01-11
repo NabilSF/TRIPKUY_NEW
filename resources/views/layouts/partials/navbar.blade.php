@@ -49,7 +49,7 @@
                             <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 border border-white shadow-inner">
                                 <i class="fas fa-user text-xs"></i>
                             </div>
-                            <span class="text-sm font-semibold text-gray-700 max-w-[100px] truncate">{{ Auth::user()->nama }}</span>
+                            <span class="text-sm font-semibold text-gray-700 max-w-25 truncate">{{ Auth::user()->nama }}</span>
                             <div class="w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center">
                                 <i class="fas fa-chevron-down text-[10px] text-gray-400 transition-transform duration-300" :class="{'rotate-180': dropdownOpen}"></i>
                             </div>

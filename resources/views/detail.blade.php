@@ -25,7 +25,7 @@
         $kamar3 = file_exists(public_path('images/kamar_3.jpg')) ? asset('images/kamar_3.jpg') : 'https://via.placeholder.com/400x300?text=Kamar+3';
     @endphp
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-2 h-[400px] mb-8 rounded-2xl overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-2 h-100 mb-8 rounded-2xl overflow-hidden">
         <div class="md:col-span-2 relative h-full group">
             <img src="{{ $mainImage }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105 cursor-pointer">
         </div>
