@@ -1,40 +1,36 @@
 @extends('layouts.app')
-
-@section('title', 'Check-in Online')
-
+@section('title', 'Booking Hotel')
 @section('content')
-<div class="max-w-5xl mx-auto px-4 py-12">
-
-    <h2 class="text-2xl font-bold mb-6">Check-in Online</h2>
-
-    {{-- Siap Check-in --}}
-    <h3 class="font-bold text-lg mb-4">Siap Check-in</h3>
-
-    @forelse($readyToCheckin as $r)
-        @php
-            $kamar = $r->tipeKamar;
-            $hotel = $kamar->hotel;
-        @endphp
-
-        <div class="bg-white p-5 rounded-xl shadow mb-4 flex justify-between items-center">
-            <div>
-                <h4 class="font-bold">{{ $hotel->nama_hotel }}</h4>
-                <p class="text-sm text-gray-500">{{ $kamar->nama_kamar }}</p>
-                <p class="text-xs text-gray-400">
-                    {{ $r->tanggal_check_in }} → {{ $r->tanggal_check_out }}
-                </p>
+<div class="max-w-3xl mx-auto px-4 py-12">
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Konfirmasi Pemesanan</h2>
+        <div class="bg-gray-50 p-4 rounded-xl mb-6 flex gap-4">
+            <div class="w-24 h-24 bg-gray-200 rounded-lg overflow-hidden shrink-0">
+                @php
+                    $hotel = $kamar->hotel;
+                    // PERBAIKAN: id_hotel -> id
+                    if ($hotel->gambar && file_exists(public_path('storage/' . $hotel->gambar))) {
+                        $imgUrl = asset('storage/' . $hotel->gambar);
+                    } elseif (file_exists(public_path('images/hotel_' . $hotel->id . '.jpg'))) {
+                        $imgUrl = asset('images/hotel_' . $hotel->id . '.jpg');
+                    } else { $imgUrl = 'https://via.placeholder.com/150'; }
+                @endphp
+                <img src="{{ $imgUrl }}" class="w-full h-full object-cover">
             </div>
-
-            <form action="{{ route('admin.checkin.process', $r->id) }}" method="POST">
-                @csrf
-                <button class="bg-primary text-white px-4 py-2 rounded-lg">
-                    Check-in
-                </button>
-            </form>
+            <div>
+                <h3 class="font-bold text-gray-800">{{ $hotel->nama_hotel }}</h3>
+                <p class="text-sm text-gray-500">{{ $kamar->nama_kamar }}</p>
+                <p class="text-primary font-bold mt-1">Rp {{ number_format($kamar->harga, 0, ',', '.') }} / malam</p>
+            </div>
         </div>
-    @empty
-        <p class="text-gray-500">Tidak ada reservasi yang bisa di-check-in.</p>
-    @endforelse
 
+        <form action="{{ route('user.reservasi.store') }}" method="POST">
+            @csrf
+            {{-- PERBAIKAN: id_kamar -> id --}}
+            <input type="hidden" name="id_kamar" value="{{ $kamar->id }}">
+            {{-- Form Input Tanggal Dll Tetap Sama --}}
+            <button type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg">Bayar & Konfirmasi</button>
+        </form>
+    </div>
 </div>
 @endsection
