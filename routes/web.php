@@ -35,7 +35,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 Route::middleware(['auth'])->group(function () {
     // Profil & Checkin
     Route::get('/profil', [HomeController::class, 'profile'])->name('user.profile');
-    Route::get('/checkin-online/{id}', [HomeController::class, 'checkinOnline'])->name('user.checkin');
+    Route::get('/checkin-online', [HomeController::class, 'checkinOnline'])->name('user.checkin');
     Route::put('/profil/update', [HomeController::class, 'updateProfile'])->name('user.profile.update');
     // Reservasi
     Route::get('/reservasi-saya', [HomeController::class, 'reservasi'])->name('user.reservasi');
